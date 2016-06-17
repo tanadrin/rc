@@ -1,0 +1,14 @@
+#include "main.hpp"
+
+Engine engine;
+
+int main () 
+{
+    while ( !TCODConsole::isWindowClosed() )
+    {
+        engine.update();
+        TCODConsole::flush();
+        engine.handleKeys();
+    }
+    return 0;
+}

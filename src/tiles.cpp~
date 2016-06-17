@@ -1,0 +1,75 @@
+#include "main.hpp"
+#include <random>
+
+extern TCODRandom * rng;
+
+MapTile::MapTile()
+{
+    isBlocked = false;
+    variations.push_back(';');
+    variations.push_back('.');
+    variations.push_back(':');
+    character = variations[setVariation()];
+    color = TCODColor::black;
+    name="Blank map tile";
+    isAnimated=false;
+}
+
+MapTile::~MapTile()
+{
+}
+
+int MapTile::setVariation()
+{
+    int random = rng->getInt(0,variations.size()-1);
+    return random;
+}
+
+GrassTile::GrassTile()
+{
+    isBlocked = false;
+    variations.push_back(';');
+    variations.push_back('.');
+    variations.push_back(':');
+    character = variations[setVariation()];
+    color = TCODColor::darkgreen;
+    name = "Grass";
+    isAnimated = false;
+}
+
+GrassTile::~GrassTile()
+{
+}
+
+DirtTile::DirtTile()
+{
+    isBlocked = false;
+    variations.push_back(';');
+    variations.push_back('.');
+    variations.push_back(':');
+    character = variations[setVariation()];
+    color = TCODColor::sepia;
+    name = "Dirt";
+    isAnimated = false;
+
+}
+
+DirtTile::~DirtTile()
+{
+}
+
+TallGrassTile::TallGrassTile()
+{
+    isBlocked = false;
+    variations.push_back('w');
+    variations.push_back('v');
+    character = variations[setVariation()];
+    color = TCODColor::green;
+    name = "Tall grass";
+    isAnimated = false;
+
+}
+
+TallGrassTile::~TallGrassTile()
+{
+}

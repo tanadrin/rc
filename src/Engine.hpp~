@@ -1,0 +1,16 @@
+class Engine 
+{
+public:
+    Engine();
+    ~Engine();
+    bool is_paused;
+    void update();
+    void handleKeys();
+    void handleActionKey(int ascii);
+    ActiveChunks *activeChunks;
+    Gui *gui;
+    PlayerObject *player;
+    TCOD_key_t lastKey;
+};
+
+extern Engine engine;

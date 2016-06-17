@@ -1,0 +1,41 @@
+#include <string>
+
+extern Engine engine;
+extern int ACTIVE_CHUNK_SIZE;
+
+class GameCamera
+{
+public:
+    GameCamera(int, int);
+    ~GameCamera();
+    int posX;
+    int posY;
+    void refreshPosition(int, int);
+};
+
+class GameObject
+{
+public:
+    GameObject(int, int);
+    ~GameObject();
+    int posX;
+    int posY;
+    int character;
+    TCODColor color;
+    std::string name;
+    AI *ai;
+    void move(int, int);
+};
+
+class PlayerObject: public GameObject
+{
+public:
+    PlayerObject(int x, int y): GameObject(0, 0)
+    {
+        posX = x; 
+        posY = y; 
+        name = "@Player"; 
+        color = TCODColor::white;
+    };
+    ~PlayerObject();
+};

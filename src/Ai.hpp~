@@ -1,0 +1,11 @@
+class AI 
+{
+public:
+    virtual void update(GameObject *owner)=0;
+};
+
+class PlayerAI: public AI
+{
+public:
+    void update(GameObject *owner);
+};
